@@ -1,0 +1,33 @@
+{
+    "name": "Testing Bot",
+    "description": "Testing By @Hagadmansa",
+    "logo": "",
+    "keywords": [
+        "telegram",
+        "telethon",
+        "telegram-bot",
+        "hagadmansa"
+    ],
+    "repository": "https://github.com/hagadmansa/Calculator-Bot",
+    "website": "hagadmansa.com",
+    "success_url": "https://t.me/hagadmansa",
+    "env": {
+        "API_ID": {
+            "description": "API_ID, Get it from my.telegram.org.",
+            "value": ""
+        },
+        "API_HASH": {
+            "description": "API_HASH, Get it from my.telegram.org.",
+            "value": ""
+        },
+        "BOT_TOKEN": {
+            "description": "BOT_TOKEN, Get it from @BotFather.",
+            "value": ""
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ]
+}
