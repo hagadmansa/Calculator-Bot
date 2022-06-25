@@ -9,7 +9,7 @@ from pyrogram.types import *
 load_dotenv()
 API = "https://api.abirhasan.wtf/google?query="
 
-@Bot.on_message(filters.private & filters.text)
+@Client.on_message(filters.private & filters.text)
 async def filter(bot, update):
     await update.reply_text(
         text="`Click the button below for searching...`",
@@ -24,7 +24,7 @@ async def filter(bot, update):
     )
 
 
-@Bot.on_inline_query()
+@Client.on_inline_query()
 async def inline(bot, update):
     results = google(update.query)
     answers = []
@@ -65,3 +65,7 @@ def google(query):
             }
         )
     return results
+
+@Client.on_message(filters.private & filters.text)
+async def private_text(bot,message):
+    await bot.reply(message.text)
