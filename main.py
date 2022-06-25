@@ -126,40 +126,4 @@ async def cb_data(_, message):
             print(error)
 
 
-@Bot.on_inline_query()
-async def inline(bot, update):
-    if len(update.data) == 0:
-        try:
-            answers = [
-                InlineQueryResultArticle(
-                    title="Calculator",
-                    description="New calculator",
-                    input_message_content=InputTextMessageContent(
-                        text=CALCULATE_TEXT,
-                        disable_web_page_preview=True
-                    ),
-                    reply_markup=CALCULATE_BUTTONS
-                )
-            ]
-        except Exception as error:
-            print(error)
-    else:
-        try:
-            data = update.query.replace("×", "*").replace("÷", "/")
-            result = str(eval(text))
-            answers = [
-                InlineQueryResultArticle(
-                    title="Answer",
-                    description=f"Result: {result}",
-                    input_message_content=InputTextMessageContent(
-                        text=f"{data} = {result}",
-                        disable_web_page_preview=True
-                    )
-                )
-            ]
-        except:
-            pass
-    await update.answer(answers)
-
-
 Bot.run()
