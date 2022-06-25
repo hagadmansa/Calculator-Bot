@@ -1,3 +1,14 @@
+import os
+import requests
+from dotenv import load_dotenv
+from requests.utils import requote_uri
+from pyrogram import Client, filters
+from pyrogram.types import *
+
+
+load_dotenv()
+API = "https://api.abirhasan.wtf/google?query="
+
 @Bot.on_message(filters.private & filters.text)
 async def filter(bot, update):
     await update.reply_text(
